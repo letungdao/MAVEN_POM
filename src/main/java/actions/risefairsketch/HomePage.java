@@ -14,7 +14,7 @@ public class HomePage extends AbstractPage {
 	}
 
 	public void verifyHomePageIsDisplayed() {
-		verifyPassed(isElementDispalyed(driver, HomePageInterfaces.TXT_USERNAME), "Home page is displayed",
+		verifyPassed(isElementDisplayed(driver, HomePageInterfaces.TXT_USERNAME), "Home page is displayed",
 				"HomePage is NOT displayed");
 		// String actualTitle = getTitle(driver);
 		// String expectedTitle = "Dashboard | RISE - Ultimate Project Manager
@@ -25,6 +25,10 @@ public class HomePage extends AbstractPage {
 
 	public void selectMenu(String menu) {
 		clickToElement(driver, String.format(HomePageInterfaces.TXT_MENU, menu));
+	}
+	
+	public void selectMenuProject(){
+		clickToElement(driver, HomePageInterfaces.MENU_PROJECTS);
 	}
 
 }

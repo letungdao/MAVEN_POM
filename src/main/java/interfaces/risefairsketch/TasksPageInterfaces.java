@@ -18,5 +18,8 @@ public class TasksPageInterfaces {
 	public static final String TXA_COMMENT = "//textarea[@name='description']";
 	public static final String BTN_ADDCOMMENT = "//button[contains(.,'Comment')]";
 	public static final String MSG_POSTCOMMENTSUCCESSFULLY = "//div[@class='app-alert-message']";
+	public static final String BTN_MANAGELABEL = "//a[@title='Manage labels']";
+	public static final String TXB_LABELNAME = "//input[@id='title']";
+	public static final String BTN_SAVELABEL = "//button[contains(.,'Save')]";
 
 }

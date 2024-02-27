@@ -1,5 +1,11 @@
 package actions.commons;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.nio.charset.Charset;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -27,7 +33,7 @@ public class AbstractTest {
 
 	protected synchronized WebDriver openMultiBrowsers(String browser, String version) {
 		if (browser.equalsIgnoreCase("chrome")) {
-//			ChromeDriverManager.getInstance().version(version).setup();
+			// ChromeDriverManager.getInstance().version(version).setup();
 			System.setProperty("webdriver.chrome.driver", "resources\\chromedriver.exe");
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("start-maximized");
@@ -103,4 +109,45 @@ public class AbstractTest {
 		String randomEmail = "automation" + number + "@gmail.com";
 		return randomEmail;
 	}
+	
+	public String randomString(){
+	    byte[] array = new byte[7]; 
+	    new Random().nextBytes(array);
+	    String generatedString = new String(array, Charset.forName("UTF-8"));
+		return generatedString;
+	}
+	
+	public String randomNumber(){
+		Random random = new Random();
+		int number = random.nextInt(999999);
+		String value = String.valueOf(number);
+		return value;
+	}
+
+	public void uploadFile(String fileUpload) {
+		// creating object of Robot class
+		Robot rb = null;
+		try {
+			rb = new Robot();
+		} catch (AWTException e) {
+			e.printStackTrace();
+		}
+		
+		// copying File path to Clipboard
+		StringSelection str = new StringSelection(fileUpload);
+		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+
+		// press Contol+V for pasting
+		rb.keyPress(KeyEvent.VK_CONTROL);
+		rb.keyPress(KeyEvent.VK_V);
+
+		// release Contol+V for pasting
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);
+
+		// for pressing and releasing Enter
+		rb.keyPress(KeyEvent.VK_ENTER);
+		rb.keyRelease(KeyEvent.VK_ENTER);
+	}
+
 }

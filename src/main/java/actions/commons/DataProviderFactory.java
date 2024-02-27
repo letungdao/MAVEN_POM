@@ -1,5 +1,6 @@
 package actions.commons;
 
+
 import org.testng.annotations.DataProvider;
 
 public class DataProviderFactory {
@@ -8,5 +9,4 @@ public class DataProviderFactory {
 	public static Object[][] dataTest() {
 		return new Object[][] { { "admin@demo.com", "riseDemo" }, { "client@demo.com", "riseDemo" } };
 	}
-
 }

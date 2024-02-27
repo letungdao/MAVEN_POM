@@ -9,7 +9,7 @@
 		<parameter name="browser" value="Chrome" />
 		<parameter name="version" value="121" />
 		<classes>
-			<class name="testcases.com.risefairsketch.TC01_LuyenTap02" />
+			<class name="testcases.com.risefairsketch.TC01_FinalExample" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -125,8 +125,8 @@ public class AbstractPage extends AbstractTest {
 
 	// locator = //button[@id='login']
 	public void clickToElement(WebDriver driver, String locator) {
+		waitForElementClickable(driver, locator);
 		WebElement element = findAnElement(driver, locator);
-		waitForElementVisible(driver, locator);
 		element.click();
 	}
 
@@ -148,8 +148,8 @@ public class AbstractPage extends AbstractTest {
 	}
 
 	public void sendkeyToElement(WebDriver driver, String locator, String value) {
+		waitForElementVisible(driver, locator);
 		WebElement element = findAnElement(driver, locator);
-		waitForElementsVisible(driver, locator);
 		element.sendKeys(value);
 	}
 
@@ -230,20 +230,33 @@ public class AbstractPage extends AbstractTest {
 		}
 	}
 
-	public boolean isElementDispalyed(WebDriver driver, String locator) {
+	public boolean isElementDisplayed(WebDriver driver, String locator) {
+		try {
+			findAnElement(driver, locator);
+			return true;
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			return false;
+		}
+	}
+
+	public boolean isElementPresent(WebDriver driver, String locator) {
 		WebElement element = findAnElement(driver, locator);
 		return element.isDisplayed();
 	}
-	
+
+	public boolean isElementNOTDisplay(WebDriver driver, String locator) {
+		List<WebElement> element = findListElement(driver, locator);
+		return element.size() < 1;
+	}
+
 	public boolean isElementEnabled(WebDriver driver, String locator) {
 		WebElement element = findAnElement(driver, locator);
 		return element.isEnabled();
 	}
-	
+
 	public boolean isElementSelected(WebDriver driver, String locator) {
 		WebElement element = findAnElement(driver, locator);
 		return element.isSelected();
 	}
-	
-	
+
 }

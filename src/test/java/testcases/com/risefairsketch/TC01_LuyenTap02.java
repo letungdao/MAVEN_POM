@@ -23,7 +23,7 @@ public class TC01_LuyenTap02 extends AbstractTest {
 		uniqueTitle = randomEmail();
 	}
 
-	@Test(dataProvider = "accountTestRisefairketch", dataProviderClass = DataProviderFactory.class)
+	@Test(dataProvider = "readDataFromExcelFile", dataProviderClass = DataProviderFactory.class)
 	public void TC01_CreateTask(String username, String password) {
 		loginPage = new LoginPage(driver);
 		

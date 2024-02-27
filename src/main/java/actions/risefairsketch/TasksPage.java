@@ -18,6 +18,18 @@ public class TasksPage extends AbstractPage {
 	public void clickAddTask() {
 		clickToElement(driver, TasksPageInterfaces.BTN_ADDTASK);
 	}
+	
+	public void clickManageLabel(){
+		clickToElement(driver, TasksPageInterfaces.BTN_MANAGELABEL);
+	}
+	
+	public void enterLabelName(String value){
+		sendkeyToElement(driver, TasksPageInterfaces.TXB_LABELNAME, value);
+	}
+	
+	public void clickSaveLabel(){
+		clickToElement(driver, TasksPageInterfaces.TXB_LABELNAME);
+	}
 
 	public void selectValueInDropdownlist(String combobox, String value) {
 		clickToElement(driver, TasksPageInterfaces.DROPDOWNLISTS, combobox);
