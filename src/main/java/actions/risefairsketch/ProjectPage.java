@@ -158,4 +158,9 @@ public class ProjectPage extends AbstractPage {
 		String fileName = "G:\\workspace\\MAVEN_C1023L1_POM\\MAVEN_C1023L1_POM\\resources\\dataTest\\dragon.png";
 		uploadFile(fileName);
 	}
+	
+	public void verifyFileIsUploadedSuccessfully() {
+		verifyPassed(isElementDisplayed(driver, ProjectPageInterfaces.BAR_PROGRESS),
+				"Files is uploaded successfully", "Files is NOT uploaded successfully");
+	}
 }

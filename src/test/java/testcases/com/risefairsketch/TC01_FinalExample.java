@@ -151,7 +151,17 @@ public class TC01_FinalExample extends AbstractTest {
 		log.info("Step 6.1 - Open Upload file tab");
 		projectPage.openFilesTab();
 		
-		log.info("VP -");
+		log.info("Step 6.2 - Click Add file");
+		projectPage.clickAddFiles();
+		
+		log.info("Step 6.3 - Click Upload file");
+		projectPage.clickUploadFile();
+		
+		log.info("Step 6.4 - Upload file");
+		projectPage.uploadFile();
+		
+		log.info("VP - Verify Upload file successful");
+		projectPage.verifyFileIsUploadedSuccessfully();
 		
 		log.info("Step 7 - Comment and reply");
 		
